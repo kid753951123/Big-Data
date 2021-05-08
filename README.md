@@ -104,9 +104,9 @@ println("re-partition count:"+reparRdd.getNumPartitions)
 **Ví dụ RDD Transformations**
 <br>
 **Transformations** trên spark RDD trả về một RDD khác và các transformation là lười biếng nghĩa là chúng không thực thi cho đến khi bạn gọi một hành động trên RDD. Một số transformation trên RDD’s là flatMap, map, ReduceByKey, filter, sortByKey và trả về RDD mới thay vì cập nhật hiện tại.
-<br>
+<br><br>
 ![2](https://user-images.githubusercontent.com/75170587/117544973-f5ef4080-b04d-11eb-93fc-3730d14b6150.PNG)
-<br>
+<br><br>
 Đầu tiên tạo một RDD bằng cách đọc một file text. Code:
 <br>
 val rdd:RDD[String] = spark.sparkContext.textFile("src/main/scala/test.txt")
@@ -134,7 +134,6 @@ val rdd5 = rdd4.reduceByKey(_ + _)
 **Code:**
 <br>
 val rdd6 = rdd5.map(a=>(a._2,a._1)).sortByKey()
-//Print rdd6 result to console
 rdd6.foreach(println
 <br><br>
 **Các loại RDD**
@@ -145,7 +144,8 @@ PairRDDFunctions hoặc PairRDD - Pair RDD là một cặp khóa-giá trị. Đ�
 * SequenceFileRDD
 * HadoopRDD
 * ParallelCollectionRDD
-<br><br>
+<br>
+<br>
 **Hoạt động Shuffle**
 <br>
 **Shuffle** - Xáo trộn là một cơ chế mà Spark sử dụng để phân phối lại dữ liệu giữa các trình thực thi khác nhau và thậm chí trên các máy. Xáo trộn kích hoạt khi thực hiện các hoạt động chuyển đổi nhất định như gropByKey (), ReduceByKey (), join () trên RDDS.
@@ -189,7 +189,7 @@ Tạo DataFrame từ List Collection
 <br>
 ### 3.	Các chức năng với cột trong DataFrame
 <br>
-![`](https://user-images.githubusercontent.com/75170587/117545529-57b0aa00-b050-11eb-87ba-a28b690e44f1.PNG)
+![1](https://user-images.githubusercontent.com/75170587/117545529-57b0aa00-b050-11eb-87ba-a28b690e44f1.PNG)
 <br>
 ### 4.	Filter 
 <br>
