@@ -134,29 +134,28 @@ val rdd5 = rdd4.reduceByKey(_ + _)
 **Code:**
 <br>
 val rdd6 = rdd5.map(a=>(a._2,a._1)).sortByKey()
-rdd6.foreach(println
+rdd6.foreach(println)
 <br><br>
 **Các loại RDD**
 <br>
-PairRDDFunctions hoặc PairRDD - Pair RDD là một cặp khóa-giá trị. Đây là loại RDD chủ yếu được sử dụng.<br>
+PairRDDFunctions hoặc PairRDD - Pair RDD là một cặp khóa-giá trị. Đây là loại RDD chủ yếu được sử dụng.
 * ShuffledRDD
 * DoubleRDD
 * SequenceFileRDD
 * HadoopRDD
 * ParallelCollectionRDD
-<br>
-<br>
+
 **Hoạt động Shuffle**
 <br>
 **Shuffle** - Xáo trộn là một cơ chế mà Spark sử dụng để phân phối lại dữ liệu giữa các trình thực thi khác nhau và thậm chí trên các máy. Xáo trộn kích hoạt khi thực hiện các hoạt động chuyển đổi nhất định như gropByKey (), ReduceByKey (), join () trên RDDS.
 <br>
 Spark Shuffle là một hoạt động tốn kém vì nó liên quan đến những điều sau:
-*	Disk I/O
-*	Liên quan đến tuần tự hóa dữ liệu và giải mã hóa
-*	Network I/O
-<br>
+* Disk I/O
+* Liên quan đến tuần tự hóa dữ liệu và giải mã hóa
+* Network I/O
+
 Khi tạo RDD, Spark không nhất thiết phải lưu trữ dữ liệu cho tất cả các khóa trong một phân vùng vì tại thời điểm tạo, không có cách nào chúng ta có thể đặt khóa cho tập dữ liệu. Do đó, khi chạy thao tác ReduceByKey () để tổng hợp dữ liệu trên các khóa, Spark sẽ thực hiện những việc sau, trước tiên cần chạy các tác vụ để thu thập tất cả dữ liệu từ tất cả các phân vùng và Spark RDD  kích hoạt xáo trộn và phân vùng lại cho một số hoạt động  như repartition () và Coalesce (), groupByKey (), ReduceByKey (), cogroup () và join ().
-<br><br><br>
+<br>
 ## Spark DataFrame
 ### 1.	Định nghĩa
 DataFrame là một tập hợp phân phối dữ liệu được tổ chức thành các cột và được đặt tên. DataFrame tương đương với một bảng trong một cơ sở dữ liệu quan hệ hoặc một khung dữ liệu trong R / Python, nhưng tối ưu và phong phú hơn. DataFrames có thể được xây dựng từ một loạt các nguồn như các tập tin dữ liệu có cấu trúc, bảng trong Hive, cơ sở dữ liệu bên ngoài, hoặc RDDs hiện có.
@@ -167,7 +166,7 @@ Dưới đây là các tính năng đặc trưng của DataFrame:
 *	Tối ưu hóa hiện đại và tạo mã thông qua trình tối ưu hóa Spark SQL.
 *	Có thể dễ dàng tích hợp với tất cả các công cụ và khuôn khổ Big Data thông qua Spark-Core.
 *	Cung cấp API cho Lập trình Python, Java, Scala và R.
-<br>
+
 ### 2.	Khởi tạo DataFrame
 Tạo DataFrame từ RDD
 <br>
@@ -188,11 +187,11 @@ Tạo DataFrame từ List Collection
 ![1](https://user-images.githubusercontent.com/75170587/117545437-f983c700-b04f-11eb-9903-869425fc43ee.PNG)
 <br>
 ### 3.	Các chức năng với cột trong DataFrame
-<br>
+
 ![1](https://user-images.githubusercontent.com/75170587/117545529-57b0aa00-b050-11eb-87ba-a28b690e44f1.PNG)
 <br>
 ### 4.	Filter 
-<br>
+
 ![1](https://user-images.githubusercontent.com/75170587/117545568-8cbcfc80-b050-11eb-8fdb-0ca8ebee92be.PNG)
 <br>
 Kết quả
