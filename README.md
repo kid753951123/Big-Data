@@ -210,23 +210,26 @@ Data mẫu
 <br>
 ![1](https://user-images.githubusercontent.com/75170587/117545671-f806ce80-b050-11eb-883e-a7767f18604f.PNG)
 <br>
+<br>
 Syntax
 <br>
+<br>
 ![1](https://user-images.githubusercontent.com/75170587/117545703-12d94300-b051-11eb-90ba-566dd2a78f19.PNG)
-<br><br>
-## Tổng quan về Mapreduce
+<br>
+<br>
+## Tổng quan về MapReduce
 ### MapReduce là gì?
 MapReduce là mô hình được thiết kế độc quyền bởi Google, nó có khả năng lập trình xử lý các tập dữ liệu lớn song song và phân tán thuật toán trên 1 cụm máy tính. MapReduce trở thành một trong những thành ngữ tổng quát hóa trong thời gian gần đây.
 <br>
 MapReduce sẽ bao gồm những thủ tục sau: thủ tục 1 Map() và 1 Reduce(). Thủ tục Map() bao gồm lọc (filter) và phân loại (sort) trên dữ liệu khi thủ tục khi thủ tục Reduce() thực hiện quá trình tổng hợp dữ liệu. Đây là mô hình dựa vào các khái niệm biển đối của bản đồ và reduce những chức năng lập trình theo hướng chức năng. Thư viện của thủ tục Map() và Reduce() sẽ được viết bằng nhiều loại ngôn ngữ khác nhau. Thủ tục được cài đặt miễn phí và được sử dụng phổ biến nhất là là Apache Hadoop.
-<br><br>
+<br>
+<br>
 **Các hàm chính của MapReduce**
 MapReduce có 2 hàm chính là Map() và Reduce(), đây là 2 hàm đã được định nghĩa bởi người dùng và nó cũng chính là 2 giai đoạn liên tiếp trong quá trình xử lý dữ liệu của MapReduce. Nhiệm vụ cụ thể của từng hàm như sau:
-<br>
 * Hàm Map(): có nhiệm vụ nhận Input cho các cặp giá trị/ khóa và output chính là tập những cặp giá trị/khóa trung gian. Sau đó, chỉ cần ghi xuống đĩa cứng và tiến hành thông báo cho các hàm Reduce() để trực tiếp nhận dữ liệu.
 * Hàm Reduce(): có nhiệm vụ tiếp nhận từ khóa trung gian và những giá trị tương ứng với lượng từ khóa đó. Sau đó, tiến hành ghép chúng lại để có thể tạo thành một tập khóa khác nhau. Các cặp khóa/giá trị này thường sẽ thông qua một con trỏ vị trí để đưa vào các hàm reduce. Quá trình này sẽ giúp cho lập trình viên quản lý dễ dàng hơn một lượng danh sách cũng như phân bổ giá trị sao cho phù hợp nhất với bộ nhớ hệ thống.
 * Ở giữa Map và Reduce thì còn 1 bước trung gian đó chính là Shuffle. Sau khi Map hoàn thành xong công việc của mình thì Shuffle sẽ làm nhiệm vụ chính là thu thập cũng như tổng hợp từ khóa/giá trị trung gian đã được map sinh ra trước đó rồi chuyển qua cho Reduce tiếp tục xử lý.
-<br>
+
 ![1](https://user-images.githubusercontent.com/75170587/117545880-dbb76180-b051-11eb-87c0-d4f78909f7ed.PNG)
 <br><br>
 **Ưu điểm**
@@ -235,7 +238,7 @@ MapReduce có 2 hàm chính là Map() và Reduce(), đây là 2 hàm đã đư�
 * Mapreduce có khả năng chạy song song trên các máy có sự phân tán khác nhau. Với khả năng hoạt động độc lập kết hợp phân tán, xử lý các lỗi kỹ thuật để mang lại nhiều hiệu quả cho toàn hệ thống.
 * MapRedue có khả năng thực hiện trên nhiều nguồn ngôn ngữ lập trình khác nhau như: Java, C/ C++, Python, Perl, Ruby,… tương ứng với nó là những thư viện hỗ trợ.
 * Mã độc trên internet ngày càng nhiều hơn nên việc xử lý những đoạn mã độc này cũng trở nên rất phức tạp và tốn kém nhiều thời gian. Chính vì vậy, các ứng dụng MapReduce dần hướng đến quan tâm nhiều hơn cho việc phát hiện các mã độc để có thể xử lý chúng. Nhờ vậy, hệ thống mới có thể vận hành trơn tru và được bảo mật nhất.
-<br>
+
 ## Machine-Learning
 ### Sử dụng Spark cho Machine-Learning
 Khi tạo mô hình học máy, khía cạnh quan trọng nhất để chuẩn bị mô hình là độ chính xác trong xử lý dữ liệu và tiết kiệm bộ nhớ máy tính. Nếu tập dữ liệu đã cho không phù hợp với bộ nhớ, thì phải sử dụng tính toán phân phối để tính toán một cụm có nhiều máy. Loại mô hình điện toán phân tán có sẵn cho đến bây giờ là HADOOP. Tuy nhiên, với SPARK, giờ đây bạn có thể xử lý dữ liệu từ các máy cục bộ độc lập và xây dựng mô hình dữ liệu với bộ dữ liệu đầu vào lớn hơn. Thông thường, các tập dữ liệu đầu vào này lớn hơn dung lượng bộ nhớ mà máy tính của bạn có. Đó là loại đàn hồi mà Apache Spark cung cấp. Do đó, Apache Spark được đặc trưng với Cơ sở hạ tầng đàn hồi. Điều này cho phép các nhà khoa học dữ liệu lặp lại các vấn đề dữ liệu nhanh hơn 100 lần so với HADOOP. Nó có 8000 nút tạo thành cụm lớn nhất thế giới được biết đến.
